@@ -11,6 +11,13 @@ int SecondOfThree(int number)
 
 Console.WriteLine("Введите трехзначное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-int result = SecondOfThree(num);
+if(num < 100 || num > 999)
+{
+    Console.WriteLine("Это не трехзначное число!");
+}
+else
+{
+    int result = SecondOfThree(num);
 
-Console.WriteLine($"{result} - это вторая цифра в числе {num}");
+    Console.WriteLine($"{result} - это вторая цифра в числе {num}");
+}
