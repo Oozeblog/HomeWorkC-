@@ -1,4 +1,6 @@
 ﻿// Задача 19: Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+
+//Вариант 1:
 /*
 void Polindrome5(int num)
 {
@@ -22,6 +24,26 @@ else
     Polindrome5(num);
 }
 */
+
+//Вариант 2 (Без ограничения по пятизначным числам):
+
+void Polindrome(int num)
+{
+    int result = 0;
+    int num2 = num;
+    while(num2 > 0)
+    {
+        result = result*10 + num2 % 10;
+        num2 = num2 / 10;
+    }
+    if(result == num)
+    Console.WriteLine("Да. Это число является палиндромом.");
+    else
+    Console.WriteLine("Нет. Это число не является палиндромом.");
+}
+Console.WriteLine("Введите число: ");
+int num = Convert.ToInt32(Console.ReadLine());
+Polindrome(num);
 
 // Задача 21: Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
 
@@ -58,7 +80,7 @@ Console.WriteLine($"Расстояние между точками равно {M
 */
 
 // Задача 23: Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
-
+/*
 void Cube(int n)
 {
     int i = 1;
@@ -77,3 +99,4 @@ while(n < 1)
     n = Convert.ToInt32(Console.ReadLine());    
 }
 Cube(n);
+*/
