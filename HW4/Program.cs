@@ -37,20 +37,20 @@ Console.WriteLine($"Сумма цифр в числе {a} равна {SumDigit(a
 
 // Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 // Вариант1: Запрашиваем у пользователя числа по одному, пока их не наберется 8, выводим массив.
-/*
+
 void FillArray(int[] collection)
 {
-    int length = 8;
+    int length = collection.Length;
     for (int i = 0; i < length; i++)
     {
-        Console.Write("Введите число: ");
+        Console.Write($"Введите {i}-й элемент массива: ");
         collection[i] = Convert.ToInt32(Console.ReadLine());
     }
 }
 
 void PrintArray(int[]collection2)
 {
-    int count = 8;
+    int count = collection2.Length;
     Console.Write($"Получился массив: [");
     for (int j = 0; j < count; j++)
     {
@@ -59,11 +59,13 @@ void PrintArray(int[]collection2)
     Console.Write("]");
 }
 
-int [] array = new int [8];
-Console.WriteLine("Создадим массив из 8 элементов");
+Console.WriteLine("Введите длину массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int [] array = new int [n];
+Console.WriteLine("Создадим массив из " + n + " элементов");
 FillArray(array);
 PrintArray(array);
-*/
+
 
 // Вариант2: Запрашиваем у пользователя длину массива, создаем массив из рандомных чисел от 1 до 20, выводим на экран
 /*
