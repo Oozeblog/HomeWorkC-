@@ -97,14 +97,13 @@ PrintArray(array);
 // Вариант3: Запрашиваем у пользователя массив(в виде ряда чисел без пробелов и запятых), переводим его в массив однозначных чисел
 /*
 Console.Write("Введите массив чисел: ");
-string Number = Console.ReadLine();
+string number = Console.ReadLine();
 
-int[] Array = new int[Number.Length];
-int i;
+int[] Array = new int[number.Length];
 
-for(i = 0; i < Number.Length; i++)
+for(int i = 0; i < number.Length; i++)
 {
-    Array[i] = Convert.ToInt32(Number[i].ToString());
+    Array[i] = Convert.ToInt32(number[i].ToString());
     Console.Write(Array[i] + ", ");
 }
 */
