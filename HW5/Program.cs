@@ -78,7 +78,7 @@ Console.WriteLine($"Сумма элементов стоящих на нечет
 */
 
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
-
+/*
 double[] CreateRandomArray(int size)
 {
     double[] array = new double[size];
@@ -120,3 +120,4 @@ Console.Write("Получившийся массив: ");
 ShowArray(myArray);
 double difference = FindDifference(myArray);
 Console.WriteLine($"Разница между максимальным и минимальным элементами массива равна {Math.Round(difference, 3)}");
+*/
