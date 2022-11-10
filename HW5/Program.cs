@@ -76,3 +76,47 @@ ShowArray(myArray);
 int oddSum = SumOddNum(myArray);
 Console.WriteLine($"Сумма элементов стоящих на нечетных позициях массива равна {oddSum}");
 */
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+double[] CreateRandomArray(int size)
+{
+    double[] array = new double[size];
+    for (int i = 0; i < size; i++)
+    {
+        array[i] = new Random().NextDouble();
+    }
+    return array;
+}
+void ShowArray(double[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(Math.Round(array[i], 3) + " ");
+    }
+    Console.WriteLine();
+}
+double FindDifference(double[] array)
+{
+    int posMin = 0;
+    int posMax = 0;
+    
+    for (int i = 0; i < array.Length; i++)
+    {
+        if(array[i] < array[posMin])
+            posMin = i;
+        if(array[i] > array[posMax])
+            posMax = i;
+    }
+    Console.WriteLine($"Максимальное значение массива: {Math.Round(array[posMax], 3)}. Минимальное значение массива: {Math.Round(array[posMin], 3)}.");
+    double diff = array[posMax] - array[posMin];
+    return diff;
+}
+Console.WriteLine("Введите количество элементов массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+double[] myArray = CreateRandomArray(n);
+Console.Write("Получившийся массив: ");
+ShowArray(myArray);
+double difference = FindDifference(myArray);
+Console.WriteLine($"Разница между максимальным и минимальным элементами массива равна {Math.Round(difference, 3)}");
