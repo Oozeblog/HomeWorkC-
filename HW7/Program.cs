@@ -53,9 +53,7 @@ double[] AverageColumns(int [,] array)
             avg = avg + array[i,j];
             count ++;
         }
-        avg = avg / count;
-        //Console.WriteLine();
-        avgArray[j] = avg;
+        avgArray[j] = avg / count;
     }
     return avgArray;
 }
