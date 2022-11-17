@@ -88,7 +88,7 @@ FindElement(myArray, r, c);
 */
 
 // Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
-
+/*
 int [,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
 {
     int[,] array = new int [rows, columns];
@@ -151,4 +151,4 @@ Show2dArray(myArray);
 double [] arrayRes = AverageColumns(myArray);
 Console.WriteLine("Cреднее арифметическое элементов в каждом столбце: ");
 ShowArray(arrayRes);
-
+*/
