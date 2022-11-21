@@ -131,7 +131,7 @@ Console.WriteLine($"Наименьшая сумма элементов в {res+1
 */
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
-
+/*
 int [,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
 {
     int[,] array = new int [rows, columns];
@@ -203,3 +203,53 @@ if(n == m2)
     Show2dArray(resMatrix);
 }
 else Console.WriteLine("Эти матрицы нельзя перемножить!");
+*/
+
+// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+
+int [,] CreateSpiralArray(int rows, int minValue)
+{
+    int[,] spiralArray = new int[rows, rows];
+
+    int i = 0;
+    int j = 0;
+    int temp = minValue;
+
+    while (minValue <= spiralArray.GetLength(0) * spiralArray.GetLength(1) + temp - 1)
+    {
+        spiralArray[i, j] = minValue;
+        minValue++;
+        
+        if (i <= j + 1 && i + j < spiralArray.GetLength(1) - 1)
+            j++;
+        else if (i < j && i + j >= spiralArray.GetLength(0) - 1)
+            i++;
+        else if (i >= j && i + j > spiralArray.GetLength(1) - 1)
+            j--;
+        else
+            i--;
+    }
+    return spiralArray;
+}
+void ShowSpiralArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if(array[i, j] < 10) Console.Write($"00{array[i,j]} ");
+            else if(array[i, j]< 100) Console.Write($"0{array[i, j]} ");
+            else Console.Write(array[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+Console.Write("Введите колличество строк: ");
+int m = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Введите начальное значение: ");
+int min = Convert.ToInt32(Console.ReadLine());
+
+int[,] myArray = CreateSpiralArray(m, min);
+Console.WriteLine("Спиральный массив: ");
+ShowSpiralArray(myArray);
