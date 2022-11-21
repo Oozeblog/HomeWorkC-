@@ -63,7 +63,7 @@ Show2dArray(myArray);
 
 
 // Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
-
+/*
 int [,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
 {
     int[,] array = new int [rows, columns];
@@ -128,3 +128,78 @@ Console.WriteLine("Исходный массив: ");
 Show2dArray(myArray);
 int res = MinSumRow(myArray);
 Console.WriteLine($"Наименьшая сумма элементов в {res+1} строке (строка с индексом {res})");
+*/
+
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+
+int [,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
+{
+    int[,] array = new int [rows, columns];
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            array[i,j] = new Random().Next(minValue, maxValue + 1);
+        }
+    }
+    return array;
+}
+void Show2dArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+int [,] MatrixMultiply(int[,] array1, int[,] array2)
+{
+    int[,] multiMartrix = new int[array1.GetLength(0), array2.GetLength(1)];
+
+    for (int i = 0; i < multiMartrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < multiMartrix.GetLength(1); j++)
+        {
+            int sum = 0;
+            for (int k = 0; k < array1.GetLength(1); k++)
+            {
+                sum += (array1[i,k] * array2[k,j]);
+            }
+            multiMartrix[i,j] = sum;
+        }
+    }
+    return multiMartrix;
+}
+
+Console.Write("Введите колличество строк первой матрицы: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите колличество столбцов первой матрицы: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите колличество строк второй матрицы: ");
+int m2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите колличество столбцов второй матрицы: ");
+int n2 = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Введите минимальное значение: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите максимальное значение: ");
+int max = Convert.ToInt32(Console.ReadLine());
+
+int[,] matrix1 = CreateRandom2dArray(m, n, min, max);
+int[,] matrix2 = CreateRandom2dArray(m2, n2, min, max);
+Console.WriteLine("Первая матрица: ");
+Show2dArray(matrix1);
+Console.WriteLine("Вторая матрица: ");
+Show2dArray(matrix2);
+if(n == m2)
+{
+    int[,] resMatrix = MatrixMultiply(matrix1, matrix2);
+    Console.WriteLine("Произведение матриц этих матриц: ");
+    Show2dArray(resMatrix);
+}
+else Console.WriteLine("Эти матрицы нельзя перемножить!");
