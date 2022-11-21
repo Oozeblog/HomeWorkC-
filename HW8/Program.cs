@@ -205,8 +205,75 @@ if(n == m2)
 else Console.WriteLine("Эти матрицы нельзя перемножить!");
 */
 
-// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+// Задача 60. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
+// Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+/*
+int[,,] Create3dArray(int a, int b, int c)
+{
+    int[,,] array3D = new int[a, b, c];
+    int[] temp = new int[a*b*c];
+    
+    for (int i = 0; i < temp.GetLength(0); i++)
+    {
+        temp[i] = new Random().Next(10, 100);
+        if (i > 0)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                while (temp[i] == temp[j])
+                {
+                    temp[i] = new Random().Next(10, 100);
+                }
+            }
+        }
+    }
+    int count = 0; 
+    for (int x = 0; x < array3D.GetLength(0); x++)
+    {
+        for (int y = 0; y < array3D.GetLength(1); y++)
+        {
+            for (int z = 0; z < array3D.GetLength(2); z++)
+            {
+                array3D[x, y, z] = temp[count];
+                count++;
+            }
+        }
+    }
+    return array3D;
+}
 
+void Show3dArray (int[,,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      for (int k = 0; k < array.GetLength(2); k++)
+      {
+        Console.Write( $"{array[i,j,k]} (array[{i}, {j}, {k}]); ");
+      }
+      Console.WriteLine();
+    }
+    Console.ReadLine();
+  }
+}
+
+Console.Write("Введите колличество строк: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите колличество столбцов: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите третий параметр массива: ");
+int p = Convert.ToInt32(Console.ReadLine());
+if((m*n*p) > 90) Console.WriteLine("Не хватает двузначных чисел, чтобы заполнить массив");
+else
+{
+    int [,,] myArray = Create3dArray(m, n, p);
+    Show3dArray(myArray);
+}
+*/
+
+// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+/*
 int [,] CreateSpiralArray(int rows, int minValue)
 {
     int[,] spiralArray = new int[rows, rows];
@@ -253,3 +320,4 @@ int min = Convert.ToInt32(Console.ReadLine());
 int[,] myArray = CreateSpiralArray(m, min);
 Console.WriteLine("Спиральный массив: ");
 ShowSpiralArray(myArray);
+*/
