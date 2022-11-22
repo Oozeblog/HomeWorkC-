@@ -208,34 +208,37 @@ else Console.WriteLine("Эти матрицы нельзя перемножит�
 // Задача 60. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
 // Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 /*
-int[,,] Create3dArray(int a, int b, int c)
+bool FindElement(int[,,] array3D, int num)
 {
-    int[,,] array3D = new int[a, b, c];
-    int[] temp = new int[a*b*c];
-    
-    for (int i = 0; i < temp.GetLength(0); i++)
+    for (int i = 0; i < array3D.GetLength(0); i++)
     {
-        temp[i] = new Random().Next(10, 100);
-        if (i > 0)
+        for (int j = 0; j < array3D.GetLength(1); j++)
         {
-            for (int j = 0; j < i; j++)
+            for (int h = 0; h < array3D.GetLength(2); h++)
             {
-                while (temp[i] == temp[j])
-                {
-                    temp[i] = new Random().Next(10, 100);
-                }
+                if (array3D[i, j, h] == num) return true;             
             }
         }
     }
-    int count = 0; 
-    for (int x = 0; x < array3D.GetLength(0); x++)
+    return false;
+}
+
+int[,,] Create3dArray(int a, int b, int c)
+{
+    int[,,] array3D = new int[a, b, c];
+
+    for (int i = 0; i < array3D.GetLength(0); i++)
     {
-        for (int y = 0; y < array3D.GetLength(1); y++)
+        for (int j = 0; j < array3D.GetLength(1); j++)
         {
-            for (int z = 0; z < array3D.GetLength(2); z++)
+            for (int h = 0; h < array3D.GetLength(2); h++)
             {
-                array3D[x, y, z] = temp[count];
-                count++;
+                int temp = new Random().Next(10,100);
+                while (FindElement(array3D, temp)==true)
+                {
+                    temp = new Random().Next(10,100);
+                } 
+                array3D[i,j,h] = temp;
             }
         }
     }
