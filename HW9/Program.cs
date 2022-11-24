@@ -12,7 +12,7 @@ ShowNatural(n);
 */
 
 // Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
-
+/*
 int SumNatural(int m, int n)
 {
     if(n >= m) return SumNatural(m + 1, n) + m;
@@ -31,4 +31,21 @@ if(m > n)
     n = temp;
 } 
 Console.WriteLine(SumNatural(m, n));
+*/
 
+// Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+/*
+int Akerman(int m, int n)
+{
+  if (m == 0) return n + 1;
+  else if (m > 0 && n == 0) return Akerman(m - 1, 1);
+  else return Akerman(m - 1, Akerman(m, n - 1));
+}
+
+Console.WriteLine("Введите первое неотрицательное число: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите второе неотрицательное число: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine(Akerman(m, n));
+*/
