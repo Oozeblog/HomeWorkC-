@@ -47,5 +47,5 @@ int m = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите второе неотрицательное число: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine(Akerman(m, n));
+Console.WriteLine($"A(m, n) = {Akerman(m, n)}");
 */
