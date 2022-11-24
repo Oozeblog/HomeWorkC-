@@ -34,7 +34,7 @@ Console.WriteLine(SumNatural(m, n));
 */
 
 // Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
-/*
+
 int Akerman(int m, int n)
 {
   if (m == 0) return n + 1;
@@ -47,5 +47,4 @@ int m = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите второе неотрицательное число: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine($"A(m, n) = {Akerman(m, n)}");
-*/
+Console.WriteLine($"A({m}, {n}) = {Akerman(m, n)}");
