@@ -11,3 +11,24 @@ int n = Convert.ToInt32(Console.ReadLine());
 ShowNatural(n);
 */
 
+// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+int SumNatural(int m, int n)
+{
+    if(n >= m) return SumNatural(m + 1, n) + m;
+    return 0;
+}
+
+Console.WriteLine("Введите первое натуральное число: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите второе натуральное число: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write($"Сумма натуральных элементов в промежутке от {m} до {n} равна: ");
+if(m > n)
+{
+    int temp = m;
+    m = n;
+    n = temp;
+} 
+Console.WriteLine(SumNatural(m, n));
+
